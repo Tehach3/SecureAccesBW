@@ -1,12 +1,15 @@
 package com.snowhorse.secureBW.api;
 
 import com.snowhorse.secureBW.user.entity.Role;
+import com.snowhorse.secureBW.user.service.ExternalApiService;
 import com.snowhorse.secureBW.user.service.RoleService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @RestController
@@ -14,9 +17,11 @@ import java.util.UUID;
 public class RoleController {
 
     private final RoleService service;
+    private final ExternalApiService externalApiService;
 
-    public RoleController(RoleService service) {
+    public RoleController(RoleService service, ExternalApiService externalApiService) {
         this.service = service;
+        this.externalApiService = externalApiService;
     }
 
     @GetMapping
@@ -37,4 +42,10 @@ public class RoleController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void eliminar(@PathVariable UUID id) { service.eliminar(id); }
+
+    @GetMapping("/external")
+    public ResponseEntity<List<Map<String, Object>>> obtenerPostsExternos() {
+        var data = externalApiService.obtenerPostsExternos();
+        return ResponseEntity.ok(data);
+    }
 }

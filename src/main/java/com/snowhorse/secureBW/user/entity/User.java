@@ -8,7 +8,7 @@ import java.time.OffsetDateTime;
 import java.util.UUID;
 
     @Entity
-    @Table(name = "com/snowhorse/secureBW/user", schema = "base", uniqueConstraints = {@UniqueConstraint(name = "uk_users_username", columnNames = {"username"})
+    @Table(name = "users", schema = "base", uniqueConstraints = {@UniqueConstraint(name = "uk_users_username", columnNames = {"username"})
     })
     @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
     public class User{
@@ -55,7 +55,7 @@ import java.util.UUID;
         @Column(name = "updated_at", nullable = false, columnDefinition = "timestamptz")
         private OffsetDateTime updatedAt;
 
-        @OneToMany(mappedBy = "com/snowhorse/secureBW/user", cascade = CascadeType.ALL, orphanRemoval = true)
+        @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
         private java.util.Set<UserRole> userRoles = new java.util.HashSet<>();
 
         @jakarta.persistence.Transient

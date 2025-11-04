@@ -6,7 +6,7 @@ import lombok.*;
 import java.time.OffsetDateTime;
 
 @Entity
-@Table(name = "user_rol", schema = "base")
+@Table(name = "user_roles", schema = "base")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
 public class UserRole {
 

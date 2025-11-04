@@ -1,4 +1,4 @@
-package user.entity;
+package com.snowhorse.secureBW.user.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -8,7 +8,7 @@ import java.time.OffsetDateTime;
 import java.util.UUID;
 
     @Entity
-    @Table(name = "user", schema = "base", uniqueConstraints = {@UniqueConstraint(name = "uk_users_username", columnNames = {"username"})
+    @Table(name = "com/snowhorse/secureBW/user", schema = "base", uniqueConstraints = {@UniqueConstraint(name = "uk_users_username", columnNames = {"username"})
     })
     @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
     public class User{
@@ -16,6 +16,11 @@ import java.util.UUID;
         @GeneratedValue
         @Column(name = "id", columnDefinition = "uuid", updatable = false, nullable = false)
         private UUID id;
+
+        @NotBlank
+        @Size(max = 64)
+        @Column(name = "username", nullable = false, length = 64)
+        private String username;
 
         @NotBlank
         @Size(min = 40, max = 40)
@@ -50,7 +55,7 @@ import java.util.UUID;
         @Column(name = "updated_at", nullable = false, columnDefinition = "timestamptz")
         private OffsetDateTime updatedAt;
 
-        @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+        @OneToMany(mappedBy = "com/snowhorse/secureBW/user", cascade = CascadeType.ALL, orphanRemoval = true)
         private java.util.Set<UserRole> userRoles = new java.util.HashSet<>();
 
         @jakarta.persistence.Transient
@@ -61,6 +66,9 @@ import java.util.UUID;
             }
             return codes;
         }
+
+        public String getUsername() { return username; }
+        public void setUsername(String username) { this.username = username; }
     }
 
 

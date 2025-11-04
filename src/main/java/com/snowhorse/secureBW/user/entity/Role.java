@@ -1,4 +1,4 @@
-package user.entity;
+package com.snowhorse.secureBW.user.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

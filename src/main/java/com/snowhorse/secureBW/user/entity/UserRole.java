@@ -21,7 +21,7 @@ public class UserRole {
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
-    @Column(name = "granted_at", nullable = false, columnDefinition = "timestamptz")
+    @Column(name = "granted_at", nullable = false, columnDefinition = "timestamp with time zone")
     private OffsetDateTime grantedAt;
 
     @Column(name = "granted_by", columnDefinition = "uuid")

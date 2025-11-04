@@ -49,10 +49,10 @@ import java.util.UUID;
         @Column(name = "last_login_at")
         private OffsetDateTime lastLoginAt;
 
-        @Column(name = "created_at", nullable = false, columnDefinition = "timestamptz")
+        @Column(name = "created_at", nullable = false, columnDefinition = "timestamp with time zone")
         private OffsetDateTime createdAt;
 
-        @Column(name = "updated_at", nullable = false, columnDefinition = "timestamptz")
+        @Column(name = "updated_at", nullable = false, columnDefinition = "timestamp with time zone")
         private OffsetDateTime updatedAt;
 
         @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)

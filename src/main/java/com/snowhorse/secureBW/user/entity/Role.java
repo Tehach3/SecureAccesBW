@@ -32,9 +32,9 @@ public class Role {
     @Column(name = "description", columnDefinition = "text")
     private String description;
 
-    @Column(name = "created_at", nullable = false, columnDefinition = "timestamptz")
+    @Column(name = "created_at", nullable = false, columnDefinition = "timestamp with time zone")
     private OffsetDateTime createdAt;
 
-    @Column(name = "updated_at", nullable = false, columnDefinition = "timestamptz")
+    @Column(name = "updated_at", nullable = false, columnDefinition = "timestamp with time zone")
     private OffsetDateTime updatedAt;
 }

@@ -1,13 +1,13 @@
-package com.example.secretskiosk;
+package com.snowhorse.secureBW;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SecretsKioskApplication {
+public class SecureBWApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SecretsKioskApplication.class, args);
+		SpringApplication.run(SecureBWApplication.class, args);
 	}
 
 }

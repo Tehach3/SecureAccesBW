@@ -1,4 +1,4 @@
-package com.snowhorse.secureBW.user.api;
+package com.snowhorse.secureBW.api;
 
 import com.snowhorse.secureBW.user.entity.Role;
 import com.snowhorse.secureBW.user.service.RoleService;
